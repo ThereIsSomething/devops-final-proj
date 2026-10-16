@@ -22,7 +22,9 @@ kubeconfig*
 *.pem
 *.key
 .local/
-# Private planning archive and the supplied appearance reference stay local.
 chat.md
 HANDOFF.md
+PROJECT_PLAN.md
 handoff/
+*.zip
+*.bundle

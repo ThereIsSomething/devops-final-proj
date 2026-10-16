@@ -98,7 +98,7 @@ findings, including unfixed ones. Successful main builds publish full-SHA GHCR
 tags, then commit that tested tag to the desired state read by Flux. Automated
 promotion commits cannot promote themselves again.
 
-[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38927742893)
+[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38935355835)
 and [scan findings](security/scan-findings.md) provide actual execution evidence.
 The first backend image was blocked by its OS vulnerability scan. An Alpine
 replacement passed without weakening the gate. CI holds no cluster credentials.
@@ -115,7 +115,7 @@ replacement passed without weakening the gate. CI holds no cluster credentials.
 The instructor approved Azure execution. AKS/VNet/node-pool evidence is the
 approved substitution for EKS/VPC/node-group evidence. Azure subnets are not a
 direct rename of AWS public/private subnets. State, saved plans, credentials,
-and kubeconfig stay outside Git. Back up state securely before moving machines.
+and kubeconfig stay outside Git; Terraform state needs a secure backup.
 
 ## Kubernetes, Helm, monitoring, and GitOps
 
@@ -157,3 +157,8 @@ review, the [execution notes](docs/evidence.md) for failures and fixes, or the
 ![LabShelf deployed on Azure](docs/evidence/screenshots/03-cloud-inventory.jpg)
 ![Prometheus application targets UP](docs/evidence/screenshots/17-prometheus-targets-up.jpg)
 ![Grafana application metrics](docs/evidence/screenshots/18-grafana-application-metrics.jpg)
+
+Build the submission archive with `python scripts/package_submission.py`. It
+includes tracked source and evidence, checks local Markdown links, and rejects
+private notes, credentials, state, dependency folders, and working archives.
+The output is `dist/submission/LabShelf-DevOps-Capstone.zip` with a SHA-256 manifest.
