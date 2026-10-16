@@ -1,8 +1,10 @@
-FROM python:3.12-slim-trixie
+FROM python:3.12-alpine
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r requirements.txt && useradd --uid 10001 --create-home labshelf
+RUN pip install -r requirements.txt \
+    && addgroup -g 10001 labshelf \
+    && adduser -D -u 10001 -G labshelf labshelf
 COPY app ./app
 COPY alembic ./alembic
 COPY alembic.ini .
