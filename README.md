@@ -7,8 +7,8 @@ storage locations, and low-stock thresholds.
 **Azure demonstration:** <http://4.224.66.52> ·
 **Repository:** [ThereIsSomething/devops-final-proj](https://github.com/ThereIsSomething/devops-final-proj)
 
-**Project records:** [screenshots](docs/evidence/README.md),
-[execution output](docs/evidence/records/README.md), and
+**Project records:** [screenshots](docs/screenshots),
+[execution output](docs/records), and
 [troubleshooting](troubleshooting/README.md).
 
 The public demo is an editable classroom sandbox. Use synthetic equipment data.
@@ -61,7 +61,7 @@ runs migrations, and stores PostgreSQL data in a named volume.
 
 Both images built locally on Windows, HTTP and browser CRUD passed against
 PostgreSQL, and all six records survived backend restart and database container
-replacement. The [persistence output](docs/evidence/records/local-persistence.txt)
+replacement. The [persistence output](docs/records/local-persistence.txt)
 records the container replacement and database totals. Repeat the check against
 the local Compose stack with `python scripts/verify_persistence.py`.
 
@@ -209,11 +209,11 @@ or TLS. These limits are documented without claiming production readiness.
 
 ## Screenshots and evidence
 
-The [screenshot index](docs/evidence/README.md) covers the application, delivery
-pipeline, infrastructure, and monitoring. The [execution records](docs/evidence/records/README.md)
+The [screenshots](docs/screenshots) cover the application, delivery
+pipeline, infrastructure, and monitoring. The [execution records](docs/records)
 include test output, scan results, deployment logs, database checks, and
 troubleshooting results.
 
-![LabShelf deployed on Azure](docs/evidence/screenshots/03-cloud-inventory.jpg)
-![Prometheus application targets UP](docs/evidence/screenshots/17-prometheus-targets-up.jpg)
-![Grafana application metrics](docs/evidence/screenshots/18-grafana-application-metrics.jpg)
+![LabShelf deployed on Azure](docs/screenshots/03-cloud-inventory.jpg)
+![Prometheus application targets UP](docs/screenshots/17-prometheus-targets-up.jpg)
+![Grafana application metrics](docs/screenshots/18-grafana-application-metrics.jpg)
