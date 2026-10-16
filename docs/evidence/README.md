@@ -1,7 +1,8 @@
 # LabShelf — project evidence
 
-Start with the [submission guide](../../SUBMISSION.md) for the grading-module
-mapping. The screenshots below are numbered in presentation order.
+The screenshots cover the local application, delivery pipeline, Azure resources,
+Kubernetes workloads, and monitoring. See the [project README](../../README.md)
+for architecture and setup.
 
 | No. | Screenshot | What it shows |
 | --- | --- | --- |
@@ -31,5 +32,5 @@ and 03 show the visible subtitle change. Later delivery runs retain the same
 pipeline gates. Screenshots record the execution at their capture time.
 
 [Execution records](records/README.md) contain logs, validation output, scan
-reports and the persistence checks. [Troubleshooting notes](../evidence.md)
+reports and the persistence checks. [Troubleshooting notes](../../troubleshooting/README.md)
 connect the observed failures to their diagnoses and fixes.

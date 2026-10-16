@@ -7,8 +7,9 @@ storage locations, and low-stock thresholds.
 **Azure demonstration:** <http://4.224.66.52> ·
 **Repository:** [ThereIsSomething/devops-final-proj](https://github.com/ThereIsSomething/devops-final-proj)
 
-**For evaluation:** start with the [submission guide](SUBMISSION.md), then the
-[numbered screenshots](docs/evidence/README.md).
+**Project records:** [screenshots](docs/evidence/README.md),
+[execution output](docs/evidence/records/README.md), and
+[troubleshooting](troubleshooting/README.md).
 
 The public demo is an editable classroom sandbox. Use synthetic equipment data.
 The cloud demo stays running for evaluation; cleanup is a separate step.
@@ -56,13 +57,15 @@ docker compose ps
 
 Open <http://localhost:3000>; API docs are at <http://localhost:8000/docs>.
 Application containers use non-root users. Compose waits for database readiness,
-runs migrations, and stores PostgreSQL data in a named volume. See
-[local development](docs/local-development.md) for native setup and tests.
+runs migrations, and stores PostgreSQL data in a named volume.
 
 Both images built locally on Windows, HTTP and browser CRUD passed against
 PostgreSQL, and all six records survived backend restart and database container
-replacement. See the
-[local verification report](docs/local-verification.md).
+replacement. The [persistence output](docs/evidence/records/local-persistence.txt)
+records the container replacement and database totals. Repeat the check against
+the local Compose stack with `python scripts/verify_persistence.py`.
+
+`docker compose down` stops the local stack. Adding `-v` also deletes its data.
 
 ## API and tests
 
@@ -87,6 +90,23 @@ There are 22 passing pytest cases covering CRUD, validation, filters, totals,
 missing records, metrics, readiness failure, and migration up/repeat/down.
 Each API test uses an isolated SQLite database. Real cloud HTTP smoke tests,
 PostgreSQL queries, and disk persistence checks are recorded separately.
+
+To run tests without Docker, install Python 3.12+ and use PowerShell from the
+project root:
+
+```powershell
+python -m venv .venv
+.venv/Scripts/python -m pip install -r backend/requirements-dev.txt
+Set-Location backend
+../.venv/Scripts/python -m pytest -v
+Set-Location ..
+```
+
+For native API development, run PostgreSQL, set `backend/.env` using
+`backend/.env.example`, then run `python -m app.migrate` and
+`uvicorn app.main:app --host 127.0.0.1 --port 8000` from `backend/` with the
+environment activated. In `frontend/`, run `npm ci` and `npm run dev`; Vite
+proxies API requests to port 8000.
 
 ## CI/CD and DevSecOps
 
@@ -119,25 +139,65 @@ and kubeconfig stay outside Git; Terraform state needs a secure backup.
 
 ## Kubernetes, Helm, monitoring, and GitOps
 
-The [cluster runbook](docs/cluster-deployment.md) covers Secret creation, Helm,
-Ingress, and monitoring access. The chart provides ConfigMap, existing Secret
-references, two frontend and two or more backend replicas, probes, resource
-limits, HPA, ClusterIP Services, Ingress, and persistent PostgreSQL storage.
+The chart provides ConfigMap, existing Secret references, two frontend and two
+or more backend replicas, probes, resource limits, HPA, ClusterIP Services,
+Ingress, and persistent PostgreSQL storage. Use the release name `labshelf`:
+the frontend Nginx upstream references the `labshelf-backend` Service.
+
+After provisioning AKS with the Azure Terraform configuration:
+
+```powershell
+az aks get-credentials --resource-group labshelf-rg --name labshelf-aks
+kubectl apply -f k8s/namespace.yaml
+helm repo add traefik https://traefik.github.io/charts
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+```
+
+Create an ignored `.local/cluster.env` containing `POSTGRES_PASSWORD` and
+`DATABASE_URL`. Generate a separate random URL-safe password for the cluster.
+Use the same password in both entries, with the database URL format
+`postgresql+psycopg://labshelf:PASSWORD@labshelf-postgres:5432/labshelf`.
+
+```powershell
+kubectl create secret generic labshelf-db -n labshelf --from-env-file=.local/cluster.env
+helm upgrade --install traefik traefik/traefik --version 42.0.0 -n traefik --create-namespace -f monitoring/traefik-values.yaml --wait
+helm upgrade --install monitoring prometheus-community/kube-prometheus-stack --version 92.9.0 -n monitoring --create-namespace -f monitoring/prometheus-values.yaml --wait --timeout 10m
+kubectl apply -f monitoring/dashboard.yaml
+helm upgrade --install labshelf helm/labshelf -n labshelf --set imageTag=FULL_COMMIT_SHA --set monitoring.enabled=true --wait --timeout 10m
+kubectl get pods,svc,ingress,hpa,pvc -n labshelf
+helm list -n labshelf
+```
+
+Replace `FULL_COMMIT_SHA` with a successfully published image tag. Monitoring is
+installed first because the application ServiceMonitor requires its CRD.
+Traefik routes `/` to the frontend and `/api` to the backend. AKS Metrics Server
+supplies HPA CPU metrics; the backend can scale from two to four replicas.
 
 Prometheus scrapes both backend pods. Grafana's LabShelf dashboard charts request
 rate, p95 latency, request totals, and targets UP. Monitoring uses localhost port
-forwards. Generate real traffic with `python scripts/load.py http://4.224.66.52`.
+forwards. In separate shells:
+
+```powershell
+kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090:9090 -n monitoring
+kubectl port-forward svc/monitoring-grafana 3001:80 -n monitoring
+```
+
+Open Prometheus at <http://localhost:9090/targets> and Grafana at
+<http://localhost:3001>. Use the generated Grafana credentials without exposing
+them in logs. Generate traffic with `python scripts/load.py http://4.224.66.52`.
 
 [Flux setup](gitops/README.md) explains reconciliation. Change visible frontend
 text, commit and push, follow Actions, then compare the browser and `/health`
-version after Flux updates the release. See the [demo guide](docs/presentation.md).
+version after Flux updates the release.
 
 ## Troubleshooting and lessons learned
 
 [Isolated exercises](troubleshooting/README.md) reproduce an invalid image and
 a Service selector mismatch in a separate namespace. Real deployment also
 exposed initial database DNS/readiness timing and an undersized Grafana limit.
-The evidence index records symptoms, investigation, fixes, and recovery.
+The troubleshooting runbook links the recorded symptoms, investigation, fixes,
+and recovery results.
 
 Lessons from execution: teaching examples need validation, SQLite tests do not
 prove PostgreSQL integration, image scans include OS packages, Service labels
@@ -149,14 +209,11 @@ or TLS. These limits are documented without claiming production readiness.
 
 ## Screenshots and evidence
 
-The [submission guide](SUBMISSION.md) maps each course module to its source and
-results. Open the [numbered screenshots](docs/evidence/README.md) for a visual
-review, the [execution notes](docs/evidence.md) for failures and fixes, or the
-[presentation guide](docs/presentation.md) for the live demonstration commands.
+The [screenshot index](docs/evidence/README.md) covers the application, delivery
+pipeline, infrastructure, and monitoring. The [execution records](docs/evidence/records/README.md)
+include test output, scan results, deployment logs, database checks, and
+troubleshooting results.
 
 ![LabShelf deployed on Azure](docs/evidence/screenshots/03-cloud-inventory.jpg)
 ![Prometheus application targets UP](docs/evidence/screenshots/17-prometheus-targets-up.jpg)
 ![Grafana application metrics](docs/evidence/screenshots/18-grafana-application-metrics.jpg)
-
-Submit the repository URL linked above. Source files, setup instructions,
-screenshots, and execution records are available directly in the repository.

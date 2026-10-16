@@ -1,6 +1,7 @@
 # Supporting execution records
 
-These files support the [screenshots](../README.md) and [grading guide](../../../SUBMISSION.md).
+These files support the [screenshots](../README.md) and
+[troubleshooting runbook](../../../troubleshooting/README.md).
 
 | Area | Records |
 | --- | --- |

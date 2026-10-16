@@ -26,5 +26,8 @@ chat.md
 HANDOFF.md
 PROJECT_PLAN.md
 handoff/
+/SUBMISSION.md
+/docs/*.md
+/docs/requirements/
 *.zip
 *.bundle
