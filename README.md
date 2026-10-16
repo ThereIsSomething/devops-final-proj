@@ -98,7 +98,7 @@ findings, including unfixed ones. Successful main builds publish full-SHA GHCR
 tags, then commit that tested tag to the desired state read by Flux. Automated
 promotion commits cannot promote themselves again.
 
-[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38935355835)
+[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38946165777)
 and [scan findings](security/scan-findings.md) provide actual execution evidence.
 The first backend image was blocked by its OS vulnerability scan. An Alpine
 replacement passed without weakening the gate. CI holds no cluster credentials.
@@ -158,7 +158,5 @@ review, the [execution notes](docs/evidence.md) for failures and fixes, or the
 ![Prometheus application targets UP](docs/evidence/screenshots/17-prometheus-targets-up.jpg)
 ![Grafana application metrics](docs/evidence/screenshots/18-grafana-application-metrics.jpg)
 
-Build the submission archive with `python scripts/package_submission.py`. It
-includes tracked source and evidence, checks local Markdown links, and rejects
-private notes, credentials, state, dependency folders, and working archives.
-The output is `dist/submission/LabShelf-DevOps-Capstone.zip` with a SHA-256 manifest.
+Submit the repository URL linked above. Source files, setup instructions,
+screenshots, and execution records are available directly in the repository.
