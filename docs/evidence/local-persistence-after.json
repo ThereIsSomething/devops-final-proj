@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Digital microscope",
+    "category": "Microscopy",
+    "quantity": 4,
+    "low_stock_threshold": 2,
+    "location": "Lab A / Shelf 3",
+    "id": 1,
+    "created_at": "2026-10-16T15:43:02.510733Z"
+  },
+  {
+    "name": "Glass beaker · 250 mL",
+    "category": "Glassware",
+    "quantity": 18,
+    "low_stock_threshold": 5,
+    "location": "Lab B / Cabinet 1",
+    "id": 2,
+    "created_at": "2026-10-16T15:43:02.520422Z"
+  },
+  {
+    "name": "Precision balance",
+    "category": "Measurement",
+    "quantity": 2,
+    "low_stock_threshold": 2,
+    "location": "Lab A / Bench 2",
+    "id": 3,
+    "created_at": "2026-10-16T15:43:02.527526Z"
+  },
+  {
+    "name": "Safety goggles",
+    "category": "Safety",
+    "quantity": 24,
+    "low_stock_threshold": 10,
+    "location": "Entrance / Safety station",
+    "id": 4,
+    "created_at": "2026-10-16T15:43:02.534426Z"
+  },
+  {
+    "name": "Adjustable micropipette",
+    "category": "Measurement",
+    "quantity": 6,
+    "low_stock_threshold": 3,
+    "location": "Lab B / Drawer 4",
+    "id": 5,
+    "created_at": "2026-10-16T15:43:02.563384Z"
+  },
+  {
+    "name": "Nitrile gloves · box",
+    "category": "Consumables",
+    "quantity": 3,
+    "low_stock_threshold": 5,
+    "location": "Store / Rack 2",
+    "id": 6,
+    "created_at": "2026-10-16T15:43:02.570247Z"
+  }
+]

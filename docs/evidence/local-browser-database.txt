@@ -1,0 +1,5 @@
+ id |            name            |   category   | quantity | low_stock_threshold |         location         
+----+----------------------------+--------------+----------+---------------------+--------------------------
+  8 | Local browser verification | Verification |        1 |                   2 | Local Compose test shelf
+(1 row)
+

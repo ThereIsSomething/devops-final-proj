@@ -1,0 +1,24 @@
+Baseline saved: 6 equipment records
+ Container labshelf-backend-1 Restarting 
+ Container labshelf-backend-1 Started 
+PASS backend restart: all 6 complete records unchanged; attempt 4
+0c7fc92a14b8907c52132cc12f5e0aadfbc15f0f9933aaf90f12ebfc67b11e8d
+volume labshelf_postgres-data -> /var/lib/postgresql/data
+ Container labshelf-postgres-1 Recreate 
+ Container labshelf-postgres-1 Recreated 
+ Container labshelf-postgres-1 Starting 
+ Container labshelf-postgres-1 Started 
+ Container labshelf-postgres-1 Waiting 
+ Container labshelf-postgres-1 Healthy 
+5df2fd5b2b180c4e8347a558fdef35381b0d9365dc617677be240cff7886e231
+volume labshelf_postgres-data -> /var/lib/postgresql/data
+PASS PostgreSQL container replacement using the same named volume: all 6 complete records unchanged; attempt 1
+ equipment_records | total_units 
+-------------------+-------------
+                 6 |          57
+(1 row)
+
+NAME                  IMAGE                COMMAND                  SERVICE    CREATED         STATUS                    PORTS
+labshelf-backend-1    labshelf-backend     "sh -c 'python -m ap…"   backend    2 minutes ago   Up 11 seconds (healthy)   127.0.0.1:8000->8000/tcp
+labshelf-frontend-1   labshelf-frontend    "/docker-entrypoint.…"   frontend   2 minutes ago   Up 2 minutes              127.0.0.1:3000->8080/tcp
+labshelf-postgres-1   postgres:17-alpine   "docker-entrypoint.s…"   postgres   7 seconds ago   Up 6 seconds (healthy)    127.0.0.1:5432->5432/tcp

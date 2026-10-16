@@ -1,0 +1,140 @@
+backend-1   | INFO:     172.18.0.4:58630 - "GET /api/equipment/7 HTTP/1.1" 200 OK
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker processes
+backend-1   | INFO:     172.18.0.4:58642 - "PUT /api/equipment/7 HTTP/1.1" 200 OK
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 21
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 22
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 23
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 24
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 25
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 26
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 27
+backend-1   | INFO:     172.18.0.4:58652 - "GET /api/equipment?category=Verification&low_stock=true HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:58658 - "DELETE /api/equipment/7 HTTP/1.1" 204 No Content
+backend-1   | INFO:     172.18.0.4:58668 - "GET /api/equipment/7 HTTP/1.1" 404 Not Found
+backend-1   | INFO:     172.18.0.4:58676 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:58690 - "GET /health HTTP/1.1" 200 OK
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 28
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 29
+backend-1   | INFO:     172.18.0.4:58700 - "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 OK
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 30
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 31
+backend-1   | INFO:     172.18.0.4:58702 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:54482 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 2026/10/16 15:42:58 [notice] 1#1: start worker process 32
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/equipment HTTP/1.1" 200 2 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:59150 - "POST /api/equipment HTTP/1.1" 201 Created
+backend-1   | INFO:     172.18.0.4:59152 - "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 169 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:59154 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:51162 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 175 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:35108 - "PUT /api/equipment/8 HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:35114 - "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:35116 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:35132 - "GET /api/equipment?q=Local+Compose+test+shelf&category=&low_stock=false HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 169 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:35136 - "GET /api/summary HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 173 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 176 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     127.0.0.1:34158 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 172 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:54508 - "GET /api/equipment?q=&category=Verification&low_stock=false HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /health HTTP/1.1" 200 33 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/summary HTTP/1.1" 200 115 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     172.18.0.4:54524 - "GET /api/summary HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "POST /api/equipment HTTP/1.1" 201 177 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/equipment/7 HTTP/1.1" 200 177 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "PUT /api/equipment/7 HTTP/1.1" 200 177 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/equipment?category=Verification&low_stock=true HTTP/1.1" 200 179 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "DELETE /api/equipment/7 HTTP/1.1" 204 0 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/equipment/7 HTTP/1.1" 404 32 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:02 +0000] "GET /api/summary HTTP/1.1" 200 115 "-" "Python-urllib/3.12" "-"
+backend-1   | INFO:     127.0.0.1:54840 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:42348 - "GET /api/equipment?q=&category=Verification&low_stock=true HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:42346 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:36508 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41048 - "DELETE /api/equipment/8 HTTP/1.1" 204 No Content
+backend-1   | INFO:     172.18.0.4:41068 - "GET /api/equipment?q=&category=Verification&low_stock=true HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41056 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41088 - "GET /api/equipment?q=&category=Verification&low_stock=false HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41078 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41094 - "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41110 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41118 - "GET /health HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41130 - "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:41132 - "GET /api/summary HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:44244 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:56160 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET / HTTP/1.1" 200 548 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /assets/index-BkY_dlP9.js HTTP/1.1" 200 238537 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     172.18.0.4:43050 - "GET /api/equipment HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /assets/index-L2HWtAzM.css HTTP/1.1" 200 11460 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /favicon.ico HTTP/1.1" 200 548 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /health HTTP/1.1" 200 33 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Shutting down
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 1041 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Waiting for application shutdown.
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:05 +0000] "GET /api/summary HTTP/1.1" 200 115 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:17 +0000] "POST /api/equipment HTTP/1.1" 201 188 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:17 +0000] "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 1230 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:17 +0000] "GET /api/summary HTTP/1.1" 200 130 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:25 +0000] "PUT /api/equipment/8 HTTP/1.1" 200 188 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:25 +0000] "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 1230 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:25 +0000] "GET /api/summary HTTP/1.1" 200 130 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:25 +0000] "GET /api/equipment?q=Local+Compose+test+shelf&category=&low_stock=false HTTP/1.1" 200 190 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:25 +0000] "GET /api/summary HTTP/1.1" 200 130 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:37 +0000] "GET /api/equipment?q=&category=Verification&low_stock=false HTTP/1.1" 200 190 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:37 +0000] "GET /api/summary HTTP/1.1" 200 130 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:48 +0000] "GET /api/equipment?q=&category=Verification&low_stock=true HTTP/1.1" 200 190 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:48 +0000] "GET /api/summary HTTP/1.1" 200 130 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:53 +0000] "DELETE /api/equipment/8 HTTP/1.1" 204 0 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Application shutdown complete.
+backend-1   | INFO:     Finished server process [1]
+backend-1   | INFO:     Started server process [1]
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:53 +0000] "GET /api/equipment?q=&category=Verification&low_stock=true HTTP/1.1" 200 2 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Waiting for application startup.
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:53 +0000] "GET /api/summary HTTP/1.1" 200 115 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Application startup complete.
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/equipment?q=&category=Verification&low_stock=false HTTP/1.1" 200 2 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/summary HTTP/1.1" 200 115 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     172.18.0.1:46710 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:43062 - "GET /api/equipment HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:39318 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 1041 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     172.18.0.1:55260 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:58704 - "GET /api/equipment HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:58716 - "GET /api/equipment HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:34114 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:60472 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:51894 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:38622 - "GET /api/equipment HTTP/1.1" 200 OK
+backend-1   | INFO:     Shutting down
+backend-1   | INFO:     Waiting for application shutdown.
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/summary HTTP/1.1" 200 115 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     Application shutdown complete.
+backend-1   | INFO:     Finished server process [1]
+backend-1   | INFO:     Started server process [1]
+backend-1   | INFO:     Waiting for application startup.
+backend-1   | INFO:     Application startup complete.
+backend-1   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+backend-1   | INFO:     172.18.0.1:50652 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:50396 - "GET /api/equipment HTTP/1.1" 200 OK
+backend-1   | INFO:     127.0.0.1:40714 - "GET /ready HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+backend-1   | INFO:     172.18.0.1:50654 - "GET /ready HTTP/1.1" 200 OK
+backend-1   | INFO:     172.18.0.4:50404 - "GET /api/equipment HTTP/1.1" 200 OK
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /assets/index-BkY_dlP9.js HTTP/1.1" 304 0 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /assets/index-L2HWtAzM.css HTTP/1.1" 304 0 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /health HTTP/1.1" 200 33 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /favicon.ico HTTP/1.1" 304 0 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/equipment?q=&category=&low_stock=false HTTP/1.1" 200 1041 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:43:54 +0000] "GET /api/summary HTTP/1.1" 200 115 "http://127.0.0.1:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:44:15 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26300; en-US) PowerShell/7.6.5" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:44:20 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26300; en-US) PowerShell/7.6.5" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:44:27 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26300; en-US) PowerShell/7.6.5" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:44:27 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26300; en-US) PowerShell/7.6.5" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:44:58 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:45:02 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Python-urllib/3.12" "-"
+frontend-1  | 172.18.0.1 - - [16/Oct/2026:15:45:09 +0000] "GET /api/equipment HTTP/1.1" 200 1041 "-" "Python-urllib/3.12" "-"

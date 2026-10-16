@@ -57,8 +57,10 @@ Application containers use non-root users. Compose waits for database readiness,
 runs migrations, and stores PostgreSQL data in a named volume. See
 [local development](docs/local-development.md) for native setup and tests.
 
-Windows Compose execution still needs verification after the pending WSL/laptop
-restart. Azure execution does not substitute for local Compose evidence.
+Windows Compose execution is verified after the WSL/laptop restart: both images
+built locally, HTTP and browser CRUD passed against PostgreSQL, and all six
+records survived backend restart and database container replacement. See the
+[local verification report](docs/local-verification.md).
 
 ## API and tests
 
@@ -144,8 +146,9 @@ or TLS. These limits are documented without claiming production readiness.
 ## Screenshots and evidence
 
 See [the evidence index](docs/evidence.md) for actual logs, screenshots, completed
-checks, and remaining captures. The local preview used SQLite; Azure uses
-PostgreSQL. Cleanup evidence waits for an explicit destruction request.
+checks, and remaining captures. The earlier native preview used SQLite; the
+verified local Compose stack and Azure both use PostgreSQL. Cleanup evidence
+waits for an explicit destruction request.
 
 ![Azure application before the delivery update](docs/evidence/cloud-before-update.jpg)
 ![Prometheus application targets UP](docs/evidence/prometheus-targets.jpg)

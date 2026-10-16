@@ -1,0 +1,17 @@
+NAME                  IMAGE                COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+labshelf-backend-1    labshelf-backend     "sh -c 'python -m ap…"   backend    18 seconds ago   Up 11 seconds (healthy)   127.0.0.1:8000->8000/tcp
+labshelf-frontend-1   labshelf-frontend    "/docker-entrypoint.…"   frontend   18 seconds ago   Up 1 second               127.0.0.1:3000->8080/tcp
+labshelf-postgres-1   postgres:17-alpine   "docker-entrypoint.s…"   postgres   18 seconds ago   Up 17 seconds (healthy)   127.0.0.1:5432->5432/tcp
+uid=10001(labshelf) gid=10001(labshelf) groups=10001(labshelf)
+uid=101(nginx) gid=101(nginx) groups=101(nginx)
+0001_equipment (head)
+Saved example equipment 1: Digital microscope
+Saved example equipment 2: Glass beaker � 250 mL
+Saved example equipment 3: Precision balance
+Saved example equipment 4: Safety goggles
+Saved example equipment 5: Adjustable micropipette
+Saved example equipment 6: Nitrile gloves � box
+PASS health; deployed version local
+PASS POST and GET; equipment id 7
+PASS PUT and low-stock filter
+PASS DELETE, subsequent 404, and unchanged original inventory totals
