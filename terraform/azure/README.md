@@ -27,7 +27,7 @@ nodes, disks, public IP, bandwidth, and load balancer still incur charges.
 Two D2s_v3 nodes consume four DSv3 vCPUs. Upgrade surge may require another node;
 check family quota before upgrading. No automatic cleanup is configured.
 
-Only after the student explicitly requests cleanup, run `terraform destroy`
+After evaluation and an explicit cleanup instruction, run `terraform destroy`
 from this directory and capture its actual result.
 
 References: [AKS Terraform quickstart](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-terraform),

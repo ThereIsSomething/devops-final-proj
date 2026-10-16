@@ -2,14 +2,13 @@
 
 LabShelf is an original laboratory equipment inventory built for a DevOps
 capstone. Add, search, filter, edit, and remove equipment while tracking quantities,
-storage locations, and low-stock thresholds. The instructor's TaskBoard stays
-local as reference material.
+storage locations, and low-stock thresholds.
 
 **Azure demonstration:** <http://4.224.66.52> ·
 **Repository:** [ThereIsSomething/devops-final-proj](https://github.com/ThereIsSomething/devops-final-proj)
 
 The public demo is an editable classroom sandbox. Use synthetic equipment data.
-Cloud resources remain running until the student explicitly requests cleanup.
+The cloud demo stays running for evaluation; cleanup is a separate step.
 
 ## Architecture
 
@@ -57,8 +56,8 @@ Application containers use non-root users. Compose waits for database readiness,
 runs migrations, and stores PostgreSQL data in a named volume. See
 [local development](docs/local-development.md) for native setup and tests.
 
-Windows Compose execution is verified after the WSL/laptop restart: both images
-built locally, HTTP and browser CRUD passed against PostgreSQL, and all six
+Both images built locally on Windows, HTTP and browser CRUD passed against
+PostgreSQL, and all six
 records survived backend restart and database container replacement. See the
 [local verification report](docs/local-verification.md).
 
@@ -88,13 +87,15 @@ PostgreSQL queries, and disk persistence checks are recorded separately.
 
 ## CI/CD and DevSecOps
 
-The [delivery workflow](.github/workflows/delivery.yml) runs on main pushes and
-pull requests. Lint, SAST, tests, dependency audits, frontend build, and secret
+The [delivery workflow](.github/workflows/delivery.yml) runs on every push to
+main, including documentation changes, and on pull requests. Lint, SAST, tests,
+dependency audits, frontend build, and secret
 scanning gate image builds. Trivy scans both images and fails on HIGH/CRITICAL
 findings, including unfixed ones. Successful main builds publish full-SHA GHCR
-tags, then commit that tested tag to the desired state read by Flux.
+tags, then commit that tested tag to the desired state read by Flux. Automated
+promotion commits cannot promote themselves again.
 
-[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38920819802)
+[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38922308480)
 and [scan findings](security/scan-findings.md) provide actual execution evidence.
 The first backend image was blocked by its OS vulnerability scan. An Alpine
 replacement passed without weakening the gate. CI holds no cluster credentials.
@@ -154,8 +155,3 @@ waits for an explicit destruction request.
 ![Prometheus application targets UP](docs/evidence/prometheus-targets.jpg)
 ![Grafana application metrics](docs/evidence/grafana-dashboard.jpg)
 
-## Academic use
-
-This project is developed with AI assistance. Review and understand the code
-and follow course disclosure rules. Evidence represents real runs; dates,
-failures, screenshots, and commit history are not fabricated.

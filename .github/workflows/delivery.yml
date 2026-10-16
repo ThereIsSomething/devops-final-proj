@@ -2,7 +2,6 @@ name: LabShelf delivery
 on:
   push:
     branches: [main]
-    paths-ignore: ['docs/**', '**.md', 'gitops/**']
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -86,6 +85,13 @@ jobs:
           exit-code: '1'
           format: table
           output: trivy-${{ matrix.service }}.txt
+      - name: Show image scan report
+        if: always()
+        shell: bash
+        run: |
+          if [ -f 'trivy-${{ matrix.service }}.txt' ]; then
+            cat 'trivy-${{ matrix.service }}.txt'
+          fi
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
@@ -102,7 +108,7 @@ jobs:
         run: docker push '${{ steps.image.outputs.name }}:${{ github.sha }}'
 
   promote:
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && github.actor != 'github-actions[bot]'
     needs: images
     runs-on: ubuntu-latest
     permissions:
