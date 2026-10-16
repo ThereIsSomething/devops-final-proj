@@ -25,13 +25,13 @@ with urllib.request.urlopen(f"{base}/api/equipment", timeout=10) as response:
 for name, category, quantity, threshold, location in examples:
     if name in existing:
         continue
-    payload = dict(
-        name=name,
-        category=category,
-        quantity=quantity,
-        low_stock_threshold=threshold,
-        location=location,
-    )
+    payload = {
+        "name": name,
+        "category": category,
+        "quantity": quantity,
+        "low_stock_threshold": threshold,
+        "location": location,
+    }
     request = urllib.request.Request(
         f"{base}/api/equipment",
         data=json.dumps(payload).encode(),

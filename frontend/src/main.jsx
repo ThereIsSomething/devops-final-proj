@@ -355,7 +355,7 @@ function App() {
               <h1>
                 Equipment inventory<span>.</span>
               </h1>
-              <p>Know what you have. Find what you need.</p>
+              <p>Know what you have. Keep every lab ready.</p>
             </div>
             <button
               className="primary"

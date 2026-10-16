@@ -411,6 +411,7 @@ select {
   border-color: #c9b978;
 }
 .table-scroll {
+  position: relative;
   overflow: auto;
 }
 table {
