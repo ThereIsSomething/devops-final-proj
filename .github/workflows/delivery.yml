@@ -1,0 +1,128 @@
+name: LabShelf delivery
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['docs/**', '**.md', 'gitops/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: delivery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - run: pip install -r backend/requirements-dev.txt
+      - name: Lint and SAST
+        run: |
+          ruff check backend
+          ruff format --check backend
+          bandit -r backend/app -ll
+      - name: Isolated API and migration tests
+        working-directory: backend
+        run: pytest -v --junitxml=../test-results.xml
+      - name: Python dependency audit
+        run: pip-audit -r backend/requirements.txt
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Frontend dependencies, audit, and production build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm audit --audit-level=high
+          npm run build
+      - name: Secret scanning
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          version: v0.76.0
+          scan-type: fs
+          scan-ref: .
+          scanners: secret
+          exit-code: '1'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: test-results
+          path: test-results.xml
+
+  images:
+    needs: quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [backend, frontend]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Compute lowercase registry name
+        id: image
+        shell: bash
+        run: echo "name=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/labshelf-${{ matrix.service }}" >> "$GITHUB_OUTPUT"
+      - name: Build image
+        run: docker build --pull -t '${{ steps.image.outputs.name }}:${{ github.sha }}' './${{ matrix.service }}'
+      - name: Scan image before publication
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
+        with:
+          version: v0.76.0
+          image-ref: ${{ steps.image.outputs.name }}:${{ github.sha }}
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          format: table
+          output: trivy-${{ matrix.service }}.txt
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: scan-${{ matrix.service }}
+          path: trivy-${{ matrix.service }}.txt
+      - uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish commit-SHA image
+        if: github.event_name != 'pull_request'
+        run: docker push '${{ steps.image.outputs.name }}:${{ github.sha }}'
+
+  promote:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: images
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Update desired version for Flux
+        shell: bash
+        run: |
+          if [ "$(git rev-parse HEAD)" != '${{ github.sha }}' ]; then
+            echo 'A newer commit exists; leaving promotion to its run.'
+            exit 0
+          fi
+          python scripts/promote.py '${{ github.sha }}'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add gitops/apps/labshelf-release.yaml
+          git diff --cached --quiet && exit 0
+          git commit -m 'deploy: promote images from ${{ github.sha }}'
+          git push origin HEAD:main
