@@ -1,0 +1,2 @@
+NAME                         READY   STATUS    RESTARTS   AGE     LABELS
+image-lab-694f557cf4-74cnc   1/1     Running   0          2m56s   app=image-lab,pod-template-hash=694f557cf4,topology.kubernetes.io/region=centralindia,topology.kubernetes.io/zone=0

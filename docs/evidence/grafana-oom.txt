@@ -1,0 +1,3 @@
+grafana: OOMKilled restarts=1
+grafana-sc-dashboard:  restarts=0
+grafana-sc-datasources:  restarts=0

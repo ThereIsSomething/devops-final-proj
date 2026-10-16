@@ -149,6 +149,7 @@ PostgreSQL. Cleanup evidence waits for an explicit destruction request.
 
 ![Azure application before the delivery update](docs/evidence/cloud-before-update.jpg)
 ![Prometheus application targets UP](docs/evidence/prometheus-targets.jpg)
+![Grafana application metrics](docs/evidence/grafana-dashboard.jpg)
 
 ## Academic use
 

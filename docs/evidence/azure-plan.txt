@@ -1,0 +1,200 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # azurerm_kubernetes_cluster.main will be created
+  + resource "azurerm_kubernetes_cluster" "main" {
+      + ai_toolchain_operator_enabled       = false
+      + current_kubernetes_version          = (known after apply)
+      + dns_prefix                          = "labshelf"
+      + fqdn                                = (known after apply)
+      + http_application_routing_zone_name  = (known after apply)
+      + id                                  = (known after apply)
+      + kube_admin_config                   = (sensitive value)
+      + kube_admin_config_raw               = (sensitive value)
+      + kube_config                         = (sensitive value)
+      + kube_config_raw                     = (sensitive value)
+      + kubernetes_version                  = "1.36"
+      + location                            = "centralindia"
+      + name                                = "labshelf-aks"
+      + node_os_upgrade_channel             = "NodeImage"
+      + node_resource_group                 = (known after apply)
+      + node_resource_group_id              = (known after apply)
+      + oidc_issuer_enabled                 = true
+      + oidc_issuer_url                     = (known after apply)
+      + portal_fqdn                         = (known after apply)
+      + private_cluster_enabled             = false
+      + private_cluster_public_fqdn_enabled = false
+      + private_dns_zone_id                 = (known after apply)
+      + private_fqdn                        = (known after apply)
+      + resource_group_name                 = "labshelf-rg"
+      + role_based_access_control_enabled   = true
+      + run_command_enabled                 = true
+      + sku_tier                            = "Free"
+      + support_plan                        = "KubernetesOfficial"
+      + tags                                = {
+          + "environment" = "capstone"
+          + "managed_by"  = "terraform"
+          + "project"     = "labshelf"
+        }
+      + workload_identity_enabled           = false
+
+      + auto_scaler_profile (known after apply)
+
+      + bootstrap_profile (known after apply)
+
+      + default_node_pool {
+          + kubelet_disk_type    = (known after apply)
+          + max_pods             = 50
+          + name                 = "system"
+          + node_count           = 2
+          + node_labels          = (known after apply)
+          + orchestrator_version = (known after apply)
+          + os_disk_size_gb      = 64
+          + os_disk_type         = "Managed"
+          + os_sku               = (known after apply)
+          + scale_down_mode      = "Delete"
+          + type                 = "VirtualMachineScaleSets"
+          + ultra_ssd_enabled    = false
+          + vm_size              = "Standard_D2s_v3"
+          + vnet_subnet_id       = (known after apply)
+          + workload_runtime     = (known after apply)
+
+          + upgrade_settings {
+              + max_surge = "1"
+            }
+        }
+
+      + identity {
+          + principal_id = (known after apply)
+          + tenant_id    = (known after apply)
+          + type         = "SystemAssigned"
+        }
+
+      + kubelet_identity (known after apply)
+
+      + network_profile {
+          + dns_service_ip      = "10.43.0.10"
+          + ip_versions         = (known after apply)
+          + load_balancer_sku   = "standard"
+          + network_data_plane  = "azure"
+          + network_mode        = (known after apply)
+          + network_plugin      = "azure"
+          + network_plugin_mode = "overlay"
+          + network_policy      = "azure"
+          + outbound_type       = "loadBalancer"
+          + pod_cidr            = "10.244.0.0/16"
+          + pod_cidrs           = (known after apply)
+          + service_cidr        = "10.43.0.0/16"
+          + service_cidrs       = (known after apply)
+
+          + load_balancer_profile (known after apply)
+
+          + nat_gateway_profile (known after apply)
+        }
+
+      + node_provisioning_profile {
+          + default_node_pools = "Auto"
+          + mode               = "Manual"
+        }
+
+      + windows_profile (known after apply)
+    }
+
+  # azurerm_resource_group.main will be created
+  + resource "azurerm_resource_group" "main" {
+      + id       = (known after apply)
+      + location = "centralindia"
+      + name     = "labshelf-rg"
+      + tags     = {
+          + "environment" = "capstone"
+          + "managed_by"  = "terraform"
+          + "project"     = "labshelf"
+        }
+    }
+
+  # azurerm_role_assignment.network will be created
+  + resource "azurerm_role_assignment" "network" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Network Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = true
+    }
+
+  # azurerm_subnet.aks will be created
+  + resource "azurerm_subnet" "aks" {
+      + address_prefixes                              = [
+          + "10.42.1.0/24",
+        ]
+      + default_outbound_access_enabled               = true
+      + id                                            = (known after apply)
+      + name                                          = "aks-nodes"
+      + network_security_group_id                     = (known after apply)
+      + network_security_group_id_wo                  = (write-only attribute)
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "labshelf-rg"
+      + route_table_id                                = (known after apply)
+      + route_table_id_wo                             = (write-only attribute)
+      + virtual_network_name                          = "labshelf-vnet"
+    }
+
+  # azurerm_subnet.services will be created
+  + resource "azurerm_subnet" "services" {
+      + address_prefixes                              = [
+          + "10.42.2.0/24",
+        ]
+      + default_outbound_access_enabled               = true
+      + id                                            = (known after apply)
+      + name                                          = "future-services"
+      + network_security_group_id                     = (known after apply)
+      + network_security_group_id_wo                  = (write-only attribute)
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "labshelf-rg"
+      + route_table_id                                = (known after apply)
+      + route_table_id_wo                             = (write-only attribute)
+      + virtual_network_name                          = "labshelf-vnet"
+    }
+
+  # azurerm_virtual_network.main will be created
+  + resource "azurerm_virtual_network" "main" {
+      + address_space                  = [
+          + "10.42.0.0/16",
+        ]
+      + dns_servers                    = (known after apply)
+      + guid                           = (known after apply)
+      + id                             = (known after apply)
+      + location                       = "centralindia"
+      + name                           = "labshelf-vnet"
+      + private_endpoint_vnet_policies = "Disabled"
+      + resource_group_name            = "labshelf-rg"
+      + subnet                         = (known after apply)
+      + tags                           = {
+          + "environment" = "capstone"
+          + "managed_by"  = "terraform"
+          + "project"     = "labshelf"
+        }
+    }
+
+Plan: 6 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cluster_name    = "labshelf-aks"
+  + get_credentials = "az aks get-credentials --resource-group labshelf-rg --name labshelf-aks"
+  + resource_group  = "labshelf-rg"
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: azure.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "azure.tfplan"

@@ -1,0 +1,14 @@
+96d4250 deploy: promote images from 7ee0b7df550e240b9d85466b4351393f7e14f5e6
+7ee0b7d feat: refine inventory release and document verified delivery
+7109590 deploy: promote images from 922bb1da710daadf9ac94498fad718ab616fc61c
+922bb1d fix(security): replace vulnerable Debian runtime and format frontend
+9a24061 docs: add deployment runbook and isolated troubleshooting exercises
+af054fa infra(aws): add validated EKS VPC and EBS CSI alternative
+4e4b79b ops: add Prometheus dashboard and Flux delivery reconciliation
+dd3687e infra(azure): define AKS network node pool and deployment chart
+3078af6 ci: gate SHA-tagged GHCR images on tests and security scans
+b3f3521 build: package non-root services and persistent Compose stack
+d6f3419 feat(web): build responsive equipment inventory with complete CRUD
+caf05df test(api): cover CRUD validation filtering and database readiness
+4fcee7b feat(api): add equipment inventory and Alembic schema
+aae93be docs: establish LabShelf scope and execution evidence rules

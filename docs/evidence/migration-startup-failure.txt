@@ -1,0 +1,20 @@
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     with util.safe_reraise():
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]          ^^^^^^^^^^^^^^^^^^^
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     raise exc_value.with_traceback(exc_tb)
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     self.dbapi_connection = connection = pool._invoke_creator(self)
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     return dialect.connect(*cargs_tup, **cparams)
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/psycopg/connection.py", line 100, in connect
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     attempts = conninfo_attempts(params)
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]                ^^^^^^^^^^^^^^^^^^^^^^^^^
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]   File "/usr/local/lib/python3.12/site-packages/psycopg/_conninfo_attempts.py", line 55, in conninfo_attempts
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate]     raise last_exc
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate] sqlalchemy.exc.OperationalError: (psycopg.OperationalError) failed to resolve host 'labshelf-postgres': [Errno -2] Name does not resolve
+[pod/labshelf-backend-8679995d5b-qgbq7/migrate] (Background on this error at: https://sqlalche.me/e/20/e3q8)

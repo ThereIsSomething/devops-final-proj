@@ -1,0 +1,38 @@
+[
+  {
+    "id": 6,
+    "name": "Nitrile gloves · box",
+    "quantity": 3,
+    "location": "Store / Rack 2"
+  },
+  {
+    "id": 5,
+    "name": "Adjustable micropipette",
+    "quantity": 6,
+    "location": "Lab B / Drawer 4"
+  },
+  {
+    "id": 4,
+    "name": "Safety goggles",
+    "quantity": 24,
+    "location": "Entrance / Safety station"
+  },
+  {
+    "id": 3,
+    "name": "Precision balance",
+    "quantity": 2,
+    "location": "Lab A / Bench 2"
+  },
+  {
+    "id": 2,
+    "name": "Glass beaker · 250 mL",
+    "quantity": 18,
+    "location": "Lab B / Cabinet 1"
+  },
+  {
+    "id": 1,
+    "name": "Digital microscope",
+    "quantity": 4,
+    "location": "Lab A / Shelf 3"
+  }
+]

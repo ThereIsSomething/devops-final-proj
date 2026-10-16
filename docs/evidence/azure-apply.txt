@@ -1,0 +1,57 @@
+azurerm_resource_group.main: Creating...
+azurerm_resource_group.main: Still creating... [00m10s elapsed]
+azurerm_resource_group.main: Still creating... [00m20s elapsed]
+azurerm_resource_group.main: Still creating... [00m30s elapsed]
+azurerm_resource_group.main: Creation complete after 40s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg]
+azurerm_virtual_network.main: Creating...
+azurerm_virtual_network.main: Creation complete after 10s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg/providers/Microsoft.Network/virtualNetworks/labshelf-vnet]
+azurerm_subnet.services: Creating...
+azurerm_subnet.aks: Creating...
+azurerm_subnet.services: Creation complete after 9s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg/providers/Microsoft.Network/virtualNetworks/labshelf-vnet/subnets/future-services]
+azurerm_subnet.aks: Still creating... [00m10s elapsed]
+azurerm_subnet.aks: Still creating... [00m20s elapsed]
+azurerm_subnet.aks: Creation complete after 20s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg/providers/Microsoft.Network/virtualNetworks/labshelf-vnet/subnets/aks-nodes]
+azurerm_kubernetes_cluster.main: Creating...
+azurerm_kubernetes_cluster.main: Still creating... [00m10s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [00m20s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [00m30s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [00m40s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [00m50s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m00s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m10s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m20s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m30s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m40s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [01m50s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m00s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m10s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m20s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m30s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m40s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [02m50s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m00s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m10s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m20s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m30s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m40s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [03m50s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m00s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m10s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m20s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m30s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m40s elapsed]
+azurerm_kubernetes_cluster.main: Still creating... [04m50s elapsed]
+azurerm_kubernetes_cluster.main: Creation complete after 4m59s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg/providers/Microsoft.ContainerService/managedClusters/labshelf-aks]
+azurerm_role_assignment.network: Creating...
+azurerm_role_assignment.network: Still creating... [00m10s elapsed]
+azurerm_role_assignment.network: Still creating... [00m20s elapsed]
+azurerm_role_assignment.network: Still creating... [00m30s elapsed]
+azurerm_role_assignment.network: Creation complete after 35s [id=/subscriptions/d2fb80fc-da87-4e40-8e95-48600c049c86/resourceGroups/labshelf-rg/providers/Microsoft.Network/virtualNetworks/labshelf-vnet/providers/Microsoft.Authorization/roleAssignments/7ca56230-94bd-1495-4c9e-dd354376a8c7]
+
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+cluster_name = "labshelf-aks"
+get_credentials = "az aks get-credentials --resource-group labshelf-rg --name labshelf-aks"
+resource_group = "labshelf-rg"

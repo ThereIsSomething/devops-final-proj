@@ -1,0 +1,5 @@
+NAME                            	NAMESPACE  	REVISION	UPDATED                                	STATUS  	CHART                                                    	APP VERSION
+aks-managed-overlay-upgrade-data	kube-system	15      	2026-10-16 15:18:54.924731785 +0000 UTC	deployed	overlay-upgrade-data-addon-0.1.0-v20260930-addon-261001-1	           
+labshelf                        	labshelf   	5       	2026-10-16 15:17:05.068157674 +0000 UTC	deployed	labshelf-0.1.0+96d42502f8dd                              	0.1.0      
+monitoring                      	monitoring 	2       	2026-10-16 20:41:43.5891552 +0530 IST  	deployed	kube-prometheus-stack-92.9.0                             	v0.94.1    
+traefik                         	traefik    	1       	2026-10-16 20:33:31.7041393 +0530 IST  	deployed	traefik-42.0.0                                           	v3.7.14    

@@ -1,0 +1,2 @@
+NAMESPACE  	NAME    	REVISION          	SUSPENDED	READY	MESSAGE                                           
+flux-system	labshelf	main@sha1:96d42502	False    	True 	stored artifact for revision 'main@sha1:96d42502'	

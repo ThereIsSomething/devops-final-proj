@@ -1,0 +1,57 @@
+Name:             image-lab-7c7884598c-7q8lb
+Namespace:        labshelf-troubleshooting
+Priority:         0
+Service Account:  default
+Node:             aks-system-13277554-vmss000001/10.42.1.4
+Start Time:       Fri, 16 Oct 2026 20:40:43 +0530
+Labels:           app=image-lab
+                  pod-template-hash=7c7884598c
+                  topology.kubernetes.io/region=centralindia
+                  topology.kubernetes.io/zone=0
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.1.195
+IPs:
+  IP:           10.244.1.195
+Controlled By:  ReplicaSet/image-lab-7c7884598c
+Containers:
+  web:
+    Container ID:   
+    Image:          nginxinc/nginx-unprivileged:labshelf-deliberately-invalid
+    Image ID:       
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     50m
+      memory:  64Mi
+    Requests:
+      cpu:        10m
+      memory:     16Mi
+    Environment:  <none>
+    Mounts:       <none>
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:                      <none>
+QoS Class:                    Burstable
+Node-Selectors:               <none>
+Tolerations:                  node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                              node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  73s                default-scheduler  Successfully assigned labshelf-troubleshooting/image-lab-7c7884598c-7q8lb to aks-system-13277554-vmss000001
+  Normal   Pulling    29s (x3 over 71s)  kubelet            spec.containers{web}: Pulling image "nginxinc/nginx-unprivileged:labshelf-deliberately-invalid"
+  Warning  Failed     28s (x3 over 70s)  kubelet            spec.containers{web}: Failed to pull image "nginxinc/nginx-unprivileged:labshelf-deliberately-invalid": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/nginxinc/nginx-unprivileged:labshelf-deliberately-invalid": failed to resolve image: docker.io/nginxinc/nginx-unprivileged:labshelf-deliberately-invalid: not found
+  Warning  Failed     28s (x3 over 70s)  kubelet            spec.containers{web}: Error: ErrImagePull
+  Normal   BackOff    15s (x3 over 69s)  kubelet            spec.containers{web}: Back-off pulling image "nginxinc/nginx-unprivileged:labshelf-deliberately-invalid"
+  Warning  Failed     15s (x3 over 69s)  kubelet            spec.containers{web}: Error: ImagePullBackOff

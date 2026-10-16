@@ -1,0 +1,2 @@
+NAME               REFERENCE                     TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+labshelf-backend   Deployment/labshelf-backend   cpu: 4%/65%   2         4         2          13m

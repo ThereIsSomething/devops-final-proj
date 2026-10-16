@@ -1,0 +1,30 @@
+[
+  {
+    "health": "up",
+    "scrapeUrl": "http://10.244.1.10:8000/metrics",
+    "lastError": "",
+    "labels": {
+      "container": "backend",
+      "endpoint": "http",
+      "instance": "10.244.1.10:8000",
+      "job": "labshelf-backend",
+      "namespace": "labshelf",
+      "pod": "labshelf-backend-8679995d5b-qgbq7",
+      "service": "labshelf-backend"
+    }
+  },
+  {
+    "health": "up",
+    "scrapeUrl": "http://10.244.1.76:8000/metrics",
+    "lastError": "",
+    "labels": {
+      "container": "backend",
+      "endpoint": "http",
+      "instance": "10.244.1.76:8000",
+      "job": "labshelf-backend",
+      "namespace": "labshelf",
+      "pod": "labshelf-backend-8679995d5b-dgc99",
+      "service": "labshelf-backend"
+    }
+  }
+]

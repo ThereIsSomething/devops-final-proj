@@ -1,0 +1,3 @@
+grafana: restarts=0
+grafana-sc-dashboard: restarts=0
+grafana-sc-datasources: restarts=0

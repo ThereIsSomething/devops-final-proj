@@ -1,0 +1,2 @@
+NAMESPACE	NAME    	REVISION          	SUSPENDED	READY	MESSAGE                                                                                        
+labshelf 	labshelf	0.1.0+96d42502f8dd	False    	True 	Helm upgrade succeeded for release labshelf/labshelf.v5 with chart labshelf@0.1.0+96d42502f8dd	
