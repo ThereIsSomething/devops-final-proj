@@ -1,0 +1,26 @@
+imageTag: bootstrap
+backend:
+  image: ghcr.io/thereissomething/labshelf-backend
+  replicas: 2
+frontend:
+  image: ghcr.io/thereissomething/labshelf-frontend
+  replicas: 2
+imagePullSecrets: []
+databaseSecret: labshelf-db
+postgres:
+  image: postgres:17-alpine
+  database: labshelf
+  username: labshelf
+  storage: 5Gi
+  storageClass: default
+ingress:
+  enabled: true
+  className: traefik
+  host: ""
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPU: 65
+monitoring:
+  enabled: false
