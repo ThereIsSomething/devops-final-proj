@@ -2,7 +2,7 @@
 
 The first delivery run, [38920205361](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38920205361),
 passed the quality job and frontend image scan. The backend scan failed, so
-GitOps promotion was skipped. The saved [Trivy report](../docs/evidence/first-backend-scan/trivy-backend.txt)
+GitOps promotion was skipped. The saved [Trivy report](../docs/evidence/records/security/initial-backend-findings.txt)
 lists 44 HIGH/CRITICAL operating-system findings for Debian 13.7. These are
 package findings, not necessarily 44 different CVEs. Its Python package checks
 reported zero matching vulnerabilities.
@@ -23,7 +23,7 @@ proof of remediation.
 
 The replacement run, [38920819802](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38920819802),
 passed both image scans and the promotion job. The saved
-[backend](../docs/evidence/clean-backend-scan/trivy-backend.txt) and
-[frontend](../docs/evidence/clean-frontend-scan/trivy-frontend.txt) reports record
+[backend](../docs/evidence/records/security/remediated-backend-scan.txt) and
+[frontend](../docs/evidence/records/security/remediated-frontend-scan.txt) reports record
 the actual clean HIGH/CRITICAL results for commit `922bb1d`. This conclusion
 applies to that build and scan time; later images still pass the same gate.

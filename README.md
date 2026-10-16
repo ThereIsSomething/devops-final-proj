@@ -7,6 +7,9 @@ storage locations, and low-stock thresholds.
 **Azure demonstration:** <http://4.224.66.52> ·
 **Repository:** [ThereIsSomething/devops-final-proj](https://github.com/ThereIsSomething/devops-final-proj)
 
+**For evaluation:** start with the [submission guide](SUBMISSION.md), then the
+[numbered screenshots](docs/evidence/README.md).
+
 The public demo is an editable classroom sandbox. Use synthetic equipment data.
 The cloud demo stays running for evaluation; cleanup is a separate step.
 
@@ -57,8 +60,8 @@ runs migrations, and stores PostgreSQL data in a named volume. See
 [local development](docs/local-development.md) for native setup and tests.
 
 Both images built locally on Windows, HTTP and browser CRUD passed against
-PostgreSQL, and all six
-records survived backend restart and database container replacement. See the
+PostgreSQL, and all six records survived backend restart and database container
+replacement. See the
 [local verification report](docs/local-verification.md).
 
 ## API and tests
@@ -89,8 +92,8 @@ PostgreSQL queries, and disk persistence checks are recorded separately.
 
 The [delivery workflow](.github/workflows/delivery.yml) runs on every push to
 main, including documentation changes, and on pull requests. Lint, SAST, tests,
-dependency audits, frontend build, and secret
-scanning gate image builds. Trivy scans both images and fails on HIGH/CRITICAL
+dependency audits, frontend build, and secret scanning gate image builds.
+Trivy scans both images and fails on HIGH/CRITICAL
 findings, including unfixed ones. Successful main builds publish full-SHA GHCR
 tags, then commit that tested tag to the desired state read by Flux. Automated
 promotion commits cannot promote themselves again.
@@ -127,7 +130,7 @@ forwards. Generate real traffic with `python scripts/load.py http://4.224.66.52`
 
 [Flux setup](gitops/README.md) explains reconciliation. Change visible frontend
 text, commit and push, follow Actions, then compare the browser and `/health`
-version after Flux updates the release. See the [demo guide](docs/demo.md).
+version after Flux updates the release. See the [demo guide](docs/presentation.md).
 
 ## Troubleshooting and lessons learned
 
@@ -146,15 +149,11 @@ or TLS. These limits are documented without claiming production readiness.
 
 ## Screenshots and evidence
 
-See [the evidence index](docs/evidence.md) for actual logs, native terminal
-screenshots and browser captures. The earlier native preview used SQLite; the
-verified local Compose stack and Azure both use PostgreSQL. Cleanup evidence
-waits for an explicit destruction request.
+The [submission guide](SUBMISSION.md) maps each course module to its source and
+results. Open the [numbered screenshots](docs/evidence/README.md) for a visual
+review, the [execution notes](docs/evidence.md) for failures and fixes, or the
+[presentation guide](docs/presentation.md) for the live demonstration commands.
 
-The [submission checklist](docs/submission-checklist.md) maps the course modules
-to their source files and screenshots. The [presentation guide](docs/demo.md)
-provides the order for the live demonstration.
-
-![Azure application before the delivery update](docs/evidence/cloud-before-update.jpg)
-![Prometheus application targets UP](docs/evidence/prometheus-targets.jpg)
-![Grafana application metrics](docs/evidence/grafana-dashboard.jpg)
+![LabShelf deployed on Azure](docs/evidence/screenshots/03-cloud-inventory.jpg)
+![Prometheus application targets UP](docs/evidence/screenshots/17-prometheus-targets-up.jpg)
+![Grafana application metrics](docs/evidence/screenshots/18-grafana-application-metrics.jpg)

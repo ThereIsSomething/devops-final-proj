@@ -14,7 +14,8 @@ from pathlib import Path
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--docker", default="docker")
 args = parser.parse_args()
-evidence = Path("docs/evidence")
+evidence = Path("docs/evidence/records")
+evidence.mkdir(parents=True, exist_ok=True)
 
 
 def docker(*arguments):

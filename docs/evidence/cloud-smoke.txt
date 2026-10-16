@@ -1,4 +1,0 @@
-PASS health; deployed version 922bb1da710daadf9ac94498fad718ab616fc61c
-PASS POST and GET; equipment id 7
-PASS PUT and low-stock filter
-PASS DELETE, subsequent 404, and unchanged original inventory totals

@@ -1,7 +1,0 @@
-Working directory: D:\devops-final-proj
-Command: helm list -n labshelf
-Run time (UTC): 2026-10-16 15:56:40
-
-NAME    	NAMESPACE	REVISION	UPDATED                               	STATUS  	CHART                      	APP VERSION
-labshelf	labshelf 	8       	2026-10-16 15:55:23.66449924 +0000 UTC	deployed	labshelf-0.1.0+5bb9c9168bb7	0.1.0      
-Exit code: 0
