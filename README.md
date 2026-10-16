@@ -146,8 +146,8 @@ or TLS. These limits are documented without claiming production readiness.
 
 ## Screenshots and evidence
 
-See [the evidence index](docs/evidence.md) for actual logs, screenshots, completed
-checks, and remaining captures. The earlier native preview used SQLite; the
+See [the evidence index](docs/evidence.md) for actual logs, native terminal
+screenshots and browser captures. The earlier native preview used SQLite; the
 verified local Compose stack and Azure both use PostgreSQL. Cleanup evidence
 waits for an explicit destruction request.
 
