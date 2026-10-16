@@ -1,0 +1,25 @@
+Working directory: D:\devops-final-proj
+Command: kubectl get pods,svc,ingress,hpa,pvc -n labshelf
+Run time (UTC): 2026-10-16 15:56:39
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/labshelf-backend-868b98ffb7-7zj4z    1/1     Running   0          39m
+pod/labshelf-backend-868b98ffb7-ds4hs    1/1     Running   0          39m
+pod/labshelf-frontend-58f6db5b67-bj5cg   1/1     Running   0          39m
+pod/labshelf-frontend-58f6db5b67-vrwjs   1/1     Running   0          39m
+pod/labshelf-postgres-0                  1/1     Running   0          45m
+
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/labshelf-backend    ClusterIP   10.43.155.199   <none>        8000/TCP   50m
+service/labshelf-frontend   ClusterIP   10.43.134.252   <none>        80/TCP     50m
+service/labshelf-postgres   ClusterIP   None            <none>        5432/TCP   50m
+
+NAME                                 CLASS     HOSTS   ADDRESS       PORTS   AGE
+ingress.networking.k8s.io/labshelf   traefik   *       4.224.66.52   80      50m
+
+NAME                                                   REFERENCE                     TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/labshelf-backend   Deployment/labshelf-backend   cpu: 4%/65%   2         4         2          50m
+
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-labshelf-postgres-0   Bound    pvc-cc4863eb-fb97-4b75-88af-c0a1a7d7cb18   5Gi        RWO            default        <unset>                 50m
+Exit code: 0

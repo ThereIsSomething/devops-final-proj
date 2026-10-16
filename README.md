@@ -95,7 +95,7 @@ findings, including unfixed ones. Successful main builds publish full-SHA GHCR
 tags, then commit that tested tag to the desired state read by Flux. Automated
 promotion commits cannot promote themselves again.
 
-[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38922308480)
+[Successful pipeline](https://github.com/ThereIsSomething/devops-final-proj/actions/runs/38927742893)
 and [scan findings](security/scan-findings.md) provide actual execution evidence.
 The first backend image was blocked by its OS vulnerability scan. An Alpine
 replacement passed without weakening the gate. CI holds no cluster credentials.
@@ -151,7 +151,10 @@ checks, and remaining captures. The earlier native preview used SQLite; the
 verified local Compose stack and Azure both use PostgreSQL. Cleanup evidence
 waits for an explicit destruction request.
 
+The [submission checklist](docs/submission-checklist.md) maps the course modules
+to their source files and screenshots. The [presentation guide](docs/demo.md)
+provides the order for the live demonstration.
+
 ![Azure application before the delivery update](docs/evidence/cloud-before-update.jpg)
 ![Prometheus application targets UP](docs/evidence/prometheus-targets.jpg)
 ![Grafana application metrics](docs/evidence/grafana-dashboard.jpg)
-

@@ -2,7 +2,8 @@
 
 Run these only in the separate `labshelf-troubleshooting` namespace. The files
 are intentionally broken; they are not application deployment manifests. The
-steps below are a procedure, not evidence that the exercises have been run.
+steps below reproduce the exercises. The [execution record](../docs/evidence.md)
+contains the observed failures, diagnoses and recovery results.
 
 ## 1. Invalid image tag
 
@@ -37,6 +38,5 @@ kubectl port-forward service/service-lab 8090:80 -n labshelf-troubleshooting
 Open <http://localhost:8090> to verify traffic reaches Nginx. The root cause is
 the mismatch between `app: incorrect-label` and the Deployment's `app: image-lab`.
 
-For each exercise record the actual symptom, command output, root cause, fix,
-and verification in `docs/evidence.md`. Never replace a real failure with
-invented success output.
+For each exercise, explain the symptom, diagnostic output, root cause, fix and
+recovery check. The saved examples are indexed in `docs/evidence.md`.
