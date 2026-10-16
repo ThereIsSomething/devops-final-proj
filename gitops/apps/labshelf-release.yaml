@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: labshelf
+  namespace: labshelf
+spec:
+  interval: 1m
+  releaseName: labshelf
+  chart:
+    spec:
+      chart: ./helm/labshelf
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: labshelf
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    imageTag: "bootstrap"
+    monitoring:
+      enabled: true

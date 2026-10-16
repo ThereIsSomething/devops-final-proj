@@ -1,0 +1,13 @@
+providers:
+  kubernetesIngress:
+    enabled: true
+  kubernetesGateway:
+    enabled: false
+service:
+  type: LoadBalancer
+ingressClass:
+  enabled: true
+  isDefaultClass: true
+resources:
+  requests: { cpu: 50m, memory: 64Mi }
+  limits: { cpu: 250m, memory: 192Mi }
