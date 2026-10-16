@@ -37,11 +37,11 @@ def summary(db: Session = Depends(get_db)):
         select(func.count(Equipment.id), func.coalesce(func.sum(Equipment.quantity), 0))
     ).one()
     low_stock = db.scalar(
-        select(func.count(Equipment.id)).where(
-            Equipment.quantity <= Equipment.low_stock_threshold
-        )
+        select(func.count(Equipment.id)).where(Equipment.quantity <= Equipment.low_stock_threshold)
     )
-    categories = list(db.scalars(select(Equipment.category).distinct().order_by(Equipment.category)))
+    categories = list(
+        db.scalars(select(Equipment.category).distinct().order_by(Equipment.category))
+    )
     return Summary(records=records, units=units, low_stock=low_stock, categories=categories)
 
 
@@ -54,10 +54,12 @@ def list_equipment(
 ):
     query = select(Equipment)
     if q.strip():
-        query = query.where(or_(
-            Equipment.name.icontains(q.strip(), autoescape=True),
-            Equipment.location.icontains(q.strip(), autoescape=True),
-        ))
+        query = query.where(
+            or_(
+                Equipment.name.icontains(q.strip(), autoescape=True),
+                Equipment.location.icontains(q.strip(), autoescape=True),
+            )
+        )
     if category:
         query = query.where(Equipment.category == category)
     if low_stock:

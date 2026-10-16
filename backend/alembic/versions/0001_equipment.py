@@ -1,7 +1,8 @@
 """Create laboratory equipment inventory."""
 
-from alembic import op
 import sqlalchemy as sa
+
+from alembic import op
 
 revision = "0001_equipment"
 down_revision = None
