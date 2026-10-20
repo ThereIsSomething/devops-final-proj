@@ -5,6 +5,7 @@ capstone. Add, search, filter, edit, and remove equipment while tracking quantit
 storage locations, and low-stock thresholds.
 
 **Azure demonstration:** <http://4.224.66.52> ·
+**NOTE:** I have stopped the azure aks and other services due to the high cost of running multiple pods and nodes for the demonstration, you will be able to screenshots relevant to the service used (azure) in screenshots folder!
 **Repository:** [ThereIsSomething/devops-final-proj](https://github.com/ThereIsSomething/devops-final-proj)
 
 **Project records:** [screenshots](docs/screenshots),
