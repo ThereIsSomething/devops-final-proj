@@ -22,6 +22,6 @@ spec:
     remediation:
       retries: 3
   values:
-    imageTag: "7a57423548e773486fb1a3f776f6221c7c7b8ed7"
+    imageTag: "13cd92844ec32d33da2babbe83c976f2740bab63"
     monitoring:
       enabled: true
